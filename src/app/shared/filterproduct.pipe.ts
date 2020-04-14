@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterproduct'
 })
-export class FilterPipe implements PipeTransform {
+export class FilterproductPipe implements PipeTransform {
 
   transform(items: any[], searchText: string, fieldName: string): any[] {
-
     // return empty array if array is falsy
     if (!items) { return []; }
 

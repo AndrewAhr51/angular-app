@@ -30,6 +30,11 @@ export class ProductListComponent implements OnInit{
 
   constructor (private productService: ProductService) {}
 
+  onProductClicked(id: number): void {
+    console.log(`product ${id} clicked!!`)
+
+  }
+
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message;
 

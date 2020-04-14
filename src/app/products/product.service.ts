@@ -20,6 +20,14 @@ export class ProductService {
     );
   }
 
+   getProduct(id: number): Observable<IProduct[]> {
+     console.log('MadeIt');
+     return this.http.get<IProduct[]>(this.productUrl).pipe(
+      tap(data => console.log('product' + JSON.stringify(data))),
+      catchError(this.handleError)
+     );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

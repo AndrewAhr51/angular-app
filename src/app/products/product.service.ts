@@ -42,9 +42,9 @@ export class ProductService {
 
   getProduct(id: number): Observable<productItem[]> {
     const productUrl = `${this.productsUrl}/${id} `;
-    const data = this.http.get<productItem[]>(productUrl);
-    console.log(data);
-    return data;
+    return this.http.get<productItem[]>(productUrl).pipe(
+      tap( data => console.log(`stringify ${JSON.stringify(data)}`))
+    );
 
 }
 

@@ -1,37 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import{IProduct} from './product';
-import { ɵNgNoValidate } from '@angular/forms';
+import {IProduct} from './product';
 import { ProductService } from './product.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'pm-products',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list-component.css']
 })
 export class ProductListComponent implements OnInit{
-  pageTitle: string = 'Product List';
-  imageWidth: number = 50;
-  imageMargin: number = 2;
-  showImage: boolean = false;
+  pageTitle = 'Product List';
+  imageWidth = 50;
+  imageMargin = 2;
+  showImage = false;
   errorMessage: string;
 
+  // tslint:disable-next-line:variable-name
   _listFilter: string;
   get listFilter(): string{
     return this._listFilter;
   }
-  set listFilter(value:string){
+  set listFilter(value: string){
     this._listFilter = value;
-    this.filteredProducts = this.listFilter? this.performFilter(this.listFilter) : this.products;
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
 
   filteredProducts: IProduct[];
 
   products: IProduct[];
 
-  constructor (private productService: ProductService) {}
+  constructor(private productService: ProductService) {}
 
   onProductClicked(id: number): void {
-    console.log(`product ${id} clicked!!`)
+    console.log(`product ${id} clicked!!`);
 
   }
 
@@ -39,10 +40,10 @@ export class ProductListComponent implements OnInit{
     this.pageTitle = 'Product List: ' + message;
 
   }
-  performFilter(filterBy: string) :IProduct[] {
+  performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product:IProduct) =>
-      product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1)
+    return this.products.filter((product: IProduct) =>
+      product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   toggleImage(): void {
@@ -51,9 +52,9 @@ export class ProductListComponent implements OnInit{
 
   ngOnInit(): void {
      this.productService.getProducts().subscribe( {
-      next:products => this.products = products,
+      next: products => this.products = products,
       error: err => this.errorMessage = err
-    })
+    });
 
   }
 }

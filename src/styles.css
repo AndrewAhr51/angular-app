@@ -13,3 +13,17 @@ div.card-header {
  .table {
    margin-top: 10px
  }
+ .curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 350px));
+  justify-content: center;
+  row-gap: 10px;
+  column-gap:50px;
+
+}
+.curriculum-grid-item{
+  display: flex;
+  align-items: center;
+
+}
+

@@ -29,7 +29,15 @@ export class ProductDetailComponent implements OnInit {
       return JSON.stringify(products);
     });
   }
+  onEdit(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate([`/products/{$id}/edit`]);
+  }
 
+  onDelete(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate([`/products/{$id}/delete`]);
+  }
   onBack(): void {
     this.router.navigate(['/products']);
   }

@@ -56,6 +56,20 @@
                        (ratingClicked)='onRatingClicked($event)'>
               </pm-star>
             </td>
+            <td>
+              <button class='btn btn-outline-secondary'
+                (click)='onEdit()'
+                style='width:80px'>
+                <i class='fa fa-edit'></i> Edit
+             </button>
+            </td>
+            <td>
+              <button class='btn btn-outline-secondary'
+              (click)='onDelete()'
+              style='width:80px'>
+              <i class='fa fa-delete'></i> Delete
+           </button>
+            </td>
           </tr>
         </tbody>
       </table>

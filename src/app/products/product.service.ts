@@ -4,27 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { IProduct } from './product';
 
-// tslint:disable-next-line:class-name
-class productItem{
-  productId: number;
-  productName: string;
-  releaseDate: string;
-  description: string;
-  price: number;
-  starRating: number;
-  imageUrl: string;
-  productCode: string;
-  constructor(
-    productId: number,
-    productName: string,
-    productCode: string,
-    releaseDate: string,
-    description: string,
-    price: number,
-    starRating: number,
-    imageUrl: string
-  ){}
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -40,9 +19,9 @@ export class ProductService {
     );
   }
 
-  getProduct(id: number): Observable<productItem[]> {
+  getProduct(id: number): Observable<IProduct[]> {
     const productUrl = `${this.productsUrl}/${id} `;
-    return this.http.get<productItem[]>(productUrl).pipe(
+    return this.http.get<IProduct[]>(productUrl).pipe(
       tap( data => console.log(`stringify ${JSON.stringify(data)}`))
     );
 

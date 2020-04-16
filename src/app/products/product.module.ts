@@ -7,16 +7,18 @@ import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { FilterproductPipe } from '../shared/filterproduct.pipe';
+import { ProductAddComponent } from './product-add.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'products', component: ProductListComponent },
+      { path: 'product/add', component: ProductAddComponent },
       {
         path: 'products/:id',
         canActivate: [ProductDetailGuard],
         component: ProductDetailComponent
-      }
+      },
+      { path: 'products', component: ProductListComponent },
     ]),
     SharedModule
   ],
@@ -24,7 +26,8 @@ import { FilterproductPipe } from '../shared/filterproduct.pipe';
     ProductListComponent,
     ProductDetailComponent,
     ConvertToSpacesPipe,
-    FilterproductPipe
+    FilterproductPipe,
+    ProductAddComponent,
   ]
 })
 export class ProductModule { }

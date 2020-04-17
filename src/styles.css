@@ -16,7 +16,7 @@ div.card-header {
  .curriculum-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(auto, 350px));
-  justify-content: center;
+  justify-content: left;
   row-gap: 10px;
   column-gap:50px;
 

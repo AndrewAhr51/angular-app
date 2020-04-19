@@ -58,9 +58,7 @@
             </td>
             <td>
               <button class='btn btn-outline-secondary'
-                (click)='onEdit()'
-                style='width:80px'>
-                <i class='fa fa-edit'></i> Edit
+              [routerLink]="['/products', product.productId, 'edit']"> Edit
              </button>
             </td>
             <td>

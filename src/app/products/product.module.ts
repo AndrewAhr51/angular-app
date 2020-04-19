@@ -4,21 +4,20 @@ import { RouterModule } from '@angular/router';
 import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from './product-detail.component';
 import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
+import { ProductEditGuard } from './product-edit.guard';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { FilterproductPipe } from '../shared/filterproduct.pipe';
 import { ProductAddComponent } from './product-add.component';
+import { ProductEditComponent } from './product-edit.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'product/add', component: ProductAddComponent },
-      {
-        path: 'products/:id',
-        canActivate: [ProductDetailGuard],
-        component: ProductDetailComponent
-      },
       { path: 'products', component: ProductListComponent },
+      { path: 'products/add', component: ProductAddComponent },
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'products/:id/edit', component: ProductEditComponent },
     ]),
     SharedModule
   ],
@@ -28,6 +27,7 @@ import { ProductAddComponent } from './product-add.component';
     ConvertToSpacesPipe,
     FilterproductPipe,
     ProductAddComponent,
+    ProductEditComponent,
   ]
 })
 export class ProductModule { }

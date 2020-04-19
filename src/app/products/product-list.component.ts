@@ -65,11 +65,11 @@ export class ProductListComponent implements OnInit {
   }
   onEdit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.router.navigate([`/products/{$id}/edit`]);
+    this.router.navigate([`/product/{$id}/edit`]);
   }
   onDelete(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.router.navigate([`/products/{$id}/delete`]);
+    this.router.navigate([`/product/{$id}/delete`]);
   }
 
 

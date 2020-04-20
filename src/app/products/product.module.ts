@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FilterproductPipe } from '../shared/filterproduct.pipe';
 import { ProductAddComponent } from './product-add.component';
 import { ProductEditComponent } from './product-edit.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   imports: [
@@ -19,7 +20,9 @@ import { ProductEditComponent } from './product-edit.component';
       { path: 'products/:id', component: ProductDetailComponent },
       { path: 'products/:id/edit', component: ProductEditComponent },
     ]),
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     ProductListComponent,

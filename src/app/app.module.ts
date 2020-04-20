@@ -25,8 +25,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms'
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
     ProductModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]
 })

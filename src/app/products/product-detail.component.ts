@@ -1,7 +1,7 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IProduct } from './product';
+import { Product } from './product';
 import { ProductService } from './product.service';
 import { Observable } from 'rxjs';
 
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class ProductDetailComponent implements OnInit {
   pageTitle = 'Product Detail';
   errorMessage = '';
-  products: IProduct;
+  products: Product;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +25,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log (id)
-    this.productService.getProduct(id).subscribe((products) => {
+    this.productService.onGetProduct(id).subscribe((products) => {
       this.products = JSON.parse(JSON.stringify(products))
       return JSON.stringify(products);
     });

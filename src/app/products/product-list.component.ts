@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from './product';
+import { Product } from './product';
 import { ProductService } from './product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -28,9 +28,9 @@ export class ProductListComponent implements OnInit {
       : this.products;
   }
 
-  filteredProducts: IProduct[];
+  filteredProducts: Product[];
 
-  products: IProduct[];
+  products: Product[];
 
   constructor(
     private productService: ProductService,
@@ -45,10 +45,10 @@ export class ProductListComponent implements OnInit {
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message;
   }
-  performFilter(filterBy: string): IProduct[] {
+  performFilter(filterBy: string): Product[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.products.filter(
-      (product: IProduct) =>
+      (product: Product) =>
         product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
     );
   }
@@ -58,7 +58,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe({
+    this.productService.onGetProducts().subscribe({
       next: (products) => (this.products = products),
       error: (err) => (this.errorMessage = err),
     });
@@ -71,6 +71,4 @@ export class ProductListComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.router.navigate([`/product/{$id}/delete`]);
   }
-
-
 }
